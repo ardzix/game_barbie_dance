@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f9eee8"><title>Pesta Putar · Kreasi Kelas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app">
+    <canvas id="world" aria-label="Dunia tiga dimensi: lemari, lantai licin, tempat menari, dan meja makan"></canvas>
+    <header class="topbar">
+      <div class="brand"><span class="brand-icon">✿</span><div><small>KREASI KELAS BERSAMA OM PIT</small><h1>Pesta Putar<span>!</span></h1></div></div>
+      <div class="toolbar">
+        <button id="mute" class="icon-button" aria-label="Matikan suara" title="Suara">♫</button>
+        <label class="volume" title="Volume"><span>Volume</span><input id="volume" type="range" min="0" max="100" value="22" aria-label="Volume musik dan suara"></label>
+        <button id="fullscreen" class="icon-button" aria-label="Layar penuh" title="Layar penuh">⛶</button>
+        <button id="reset" class="icon-button" aria-label="Ulang dari awal" title="Ulang dari awal">↺</button>
+      </div>
+    </header>
+    <div class="progress" aria-label="Urutan permainan">
+      <div class="step current" data-step="dress"><span>♧</span><b>Baju</b><i>1</i></div><div class="connector"></div>
+      <div class="step" data-step="dance"><span>✧</span><b>Menari</b><i>2</i></div><div class="connector"></div>
+      <div class="step" data-step="eat"><span>◒</span><b>Makan</b><i>3</i></div>
+    </div>
+    <div id="instruction" class="instruction" aria-live="polite"><span id="hintIcon">♧</span><div><small id="eyebrow">LANGKAH 1 · BAJU BAGUS</small><h2 id="hint">Jalan pelan ke lemari</h2><p id="subhint">Lantai biru licin. Tekan tombol kura-kura!</p></div></div>
+    <div id="toast" class="toast" role="status"></div>
+    <div id="controls" class="controls">
+      <div class="move-area"><div class="dpad" aria-label="Tombol gerak"><button class="dir up" data-dir="up" aria-label="Maju">▲</button><button class="dir left" data-dir="left" aria-label="Ke kiri">◀</button><span class="pad-center">✿</span><button class="dir right" data-dir="right" aria-label="Ke kanan">▶</button><button class="dir down" data-dir="down" aria-label="Mundur">▼</button></div><span class="key-hint">PANAH / WASD</span></div>
+      <div class="action-area"><button id="slow" class="slow-button" aria-pressed="false"><span>🐢</span><b>Pelan-pelan</b><small id="slowState">MATI · SHIFT</small></button><button id="action" class="action-button" disabled><span id="actionIcon">♧</span><b id="actionText">Ambil baju</b><small>SPASI</small></button></div>
+    </div>
+    <footer><span>Ide kalian jadi permainan.</span><button id="retry">↻ Coba lagi</button><a href="musik-tari.mid" download>↓ Musik MIDI</a></footer>
+    <section id="intro" class="overlay">
+      <div class="intro-card"><span class="pill">SATU IDE, JADI PETUALANGAN</span><div class="hero-symbol">✿</div><h2>Siap untuk<br><em>pesta putar?</em></h2><p>Ambil baju, menari bersama pangeran,<br>lalu makan setelah capek.</p><div class="intro-tip"><span>🐢</span><span>Lantai licin? <b>Jalan pelan-pelan.</b></span></div><button id="start" class="primary">Ayo main <span>▶</span></button><small>Abi mengendalikan, teman-teman memberi arahan.</small></div>
+    </section>
+    <section id="ending" class="overlay hidden"><div class="intro-card end-card"><span class="pill">HEBAT, BERHASIL!</span><div class="hero-symbol">✧</div><h2>Putar, putar,<br><em>hore!</em></h2><p>Baju sudah dipakai. Tarian sudah selesai.<br>Sekarang kenyang dan senang!</p><div class="finish-icons">♧ <span>→</span> ✧ <span>→</span> ◒</div><button id="again" class="primary">Main lagi <span>↻</span></button><small>Pelan-pelan membantu kita sampai tujuan.</small></div></section>
+    <div id="fatal" class="overlay hidden"><div class="intro-card"><h2>Gambarnya belum tampil</h2><p id="fatalText">Coba buka dengan Chrome atau Edge yang mendukung WebGL.</p></div></div>
+  </main>
+  <script src="vendor/three.min.js"></script><script src="characters.js"></script><script src="audio.js"></script><script src="game.js"></script>
+</body>
+</html>

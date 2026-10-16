@@ -1,0 +1,12 @@
+{
+  "name": "pesta-putar",
+  "version": "1.0.0",
+  "private": true,
+  "description": "An original offline Three.js classroom game: dress up, dance with a prince, then eat.",
+  "scripts": {
+    "build": "node scripts/check.mjs",
+    "check": "node scripts/check.mjs",
+    "test": "node scripts/test-game.cjs && node scripts/test-audio.cjs",
+    "start": "node scripts/serve.mjs"
+  }
+}
